@@ -1,0 +1,22 @@
+<h3>Nueva película:</h3>
+<%= form_with model: @movie, local: true do |form| %>
+  <div class="row">
+    <div class="col">
+      <%= form.label 'Nombre' %>
+      <%= form.text_field :name, placeholder:'Nombre', class:'form-control' %>
+    </div>
+    <div class="col">
+      <%= form.label 'Año' %>
+      <%= form.number_field :year, placeholder:'Año', class:'form-control' %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <%= form.label 'Añadir a favoritos' %>
+      <%= form.check_box :favorite %>
+    </div>
+  </div>
+  <br>
+  <%= form.submit 'Enviar', class:'btn btn-success' %>
+  <% end %>

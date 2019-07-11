@@ -1,0 +1,59 @@
+<h1>Películas:</h1>
+<br>
+<h3>Favoritas:</h3>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Año</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <% if movie.favorite == true %>
+        <tr>
+          <th scope="row"><%= movie.id%></th>
+          <td><%= movie.name %></td>
+          <td><%= movie.year %></td>
+          <td>
+            <%= link_to 'Ver',  movie_path(movie),  class: 'btn btn-success' %>
+            <%= link_to 'Editar',  edit_movie_path(movie),  class: 'btn btn-warning' %>
+            <%= link_to 'Eliminar', movie, method: :delete, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<h3>General:</h3>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Año</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <% if movie.favorite == false %>
+        <tr>
+          <th scope="row"><%= movie.id%></th>
+          <td><%= movie.name %></td>
+          <td><%= movie.year %></td>
+          <td>
+            <%= link_to 'Ver',  movie_path(movie),  class: 'btn btn-success' %>
+            <%= link_to 'Editar',  edit_movie_path(movie),  class: 'btn btn-warning' %>
+            <%= link_to 'Eliminar', destroy_movie_path(movie), method: :delete, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+        <% end %>
+      <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Nueva película', movies_new_path, class: 'btn btn-info' %>

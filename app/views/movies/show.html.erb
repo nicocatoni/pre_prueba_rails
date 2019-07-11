@@ -1,0 +1,10 @@
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @movie.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @favorite %></h6>
+    <p class="card-text"><%= @movie.year %></p>
+    <%= link_to 'Volver', movies_path, class:'btn btn-info'%>
+    <%= link_to 'Editar', edit_movie_path , class:'btn btn-warning'%>
+  </div>
+</div>
